@@ -1,0 +1,38 @@
+.container {
+    background-color: #f3f3f3;
+    box-sizing: border-box;
+    display: flex;
+    min-height: calc(100vh - 100px);
+    overflow-x: auto;
+    padding-bottom: 35px;
+    width: 100%;
+}
+
+
+.app-header {
+    -webkit-tap-highlight-color: transparent;
+    align-items: center;
+    background-color: #2196f3;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    min-height: 47px;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: all 450ms cubic-bezier(.23,1,.32,1) 0ms;
+    width: 100%;
+}
+
+div .header-filters{
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+}
+
+span {
+    box-sizing: border-box;
+    vertical-align: middle;
+}

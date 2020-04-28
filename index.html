@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div page-header="">
+
+  <meta name="robots" content="noindex">
+
+
+  <header class="app-header" ng-show="userId !== ''" aria-hidden="false">
+    <div class="header-filters">
+      <div class="logo" ng-click="changeLocation('/')" role="button" tabindex="0">
+          <span class="">
+            FunRetro
+          </span>
+      </div>
+      <div ng-show="isAtBoard()" class="filter-message filter-message-full" aria-hidden="false">
+        <input placeholder="Filter your cards" ng-model="filterMessage" aria-label="Filter your cards" class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
+      </div>
+      <span ng-show="isAtBoard()" class="header-select-container" aria-hidden="false">
+          <select class="header-select ng-pristine ng-untouched ng-valid ng-not-empty" id="sortField" title="sort fields by" ng-model="sortField" ng-change="updateSortOrder()" aria-invalid="false">
+            <option value="order" selected="selected">Sort: order</option>
+            <option value="date_created">Sort: created date</option>
+            <option value="votes">Sort: votes</option>
+          </select>
+        </span>
+      <span ng-show="isAtBoard()" aria-hidden="false">
+          <button class="terciary-button" ng-click="changeLocation('dashboard')">
+            Dashboard
+          </button>
+        </span>
+      <span ng-show="isAtBoard()" class="change-layout" aria-hidden="false">
+          <label>Layout</label>
+          <i ng-class="displayAsList ? 'fa fa-bars bars-flipped bars-disabled' : 'fa fa-bars bars-flipped'" ng-click="changeDisplayAsList(false)" role="button" tabindex="0" class="fa fa-bars bars-flipped"></i>
+          <i ng-class="displayAsList ? 'fa fa-bars' : 'fa fa-bars bars-disabled'" ng-click="changeDisplayAsList(true)" role="button" tabindex="0" class="fa fa-bars bars-disabled"></i>
+        </span>
+    </div>
+    <span class="header-controls">
+        <span ng-show="isAtBoard()" class="prime" aria-hidden="false">
+          <i class="fa fa-star"></i> Prime Directive
+          <span>
+            <blockquote>
+              <p>
+                Regardless of what we discover, we understand and truly believe
+                that everyone did the best job they could, given what they knew
+                at the time, their skills and abilities, the resources
+                available, and the situation at hand
+              </p>
+              <footer>In Project Retrospectives, Norm Kerth</footer>
+            </blockquote>
+          </span>
+        </span>
+        <span class="header-icon">
+          <span class="user-menu">
+            <i ng-click="changeLocation('profile')" ng-show="!user.photoURL" class="fa fa-user-circle" role="button" tabindex="0" aria-hidden="false"></i>
+            <img alt="user image" ng-click="changeLocation('profile')" ng-show="user.photoURL" title="Tom" class="user-photo ng-hide" role="button" tabindex="0" aria-hidden="true">
+            <span class="user-menu-container">
+              <span class="user-menu-name ng-binding">Tom</span>
+              <a ng-show="isAnonymous" class="logout-link ng-hide" ng-click="registerAnonymousUser()" aria-hidden="true"><i class="fa fa-sign-in"></i> Register</a>
+              <a ng-show="!isAnonymous" ng-click="changeLocation('profile')" class="logout-link" aria-hidden="false">
+                <i class="fa fa-user"></i>Your Profile
+              </a>
+              <a href="https://funretro.canny.io/feature-requests" target="_blank" class="logout-link">
+                <i class="fa fa-comment"></i>FunRetro Feedback
+              </a>
+              <a class="logout-link" ng-click="logout()"><i class="fa fa-sign-out"></i>Logout</a>
+            </span>
+          </span>
+        </span>
+      </span>
+  </header>
+
+
+</div>
+</body>
+</html>
